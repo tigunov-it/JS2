@@ -91,7 +91,6 @@ function listener () {
     for (let i = 0; i < buttonItems.length; i++) {
         let button = buttonItems[i];
         button.addEventListener('click', function (event) {
-
             cart.addGoods(event.target.parentElement.innerText);
             console.log(event.target);
             console.log(event.target.parentNode);
