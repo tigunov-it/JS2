@@ -78,6 +78,13 @@
       transform: rotate(45deg);
     }
   }
+  .product-item-cart {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #cccccc;
+  }
 }
 
 .products {
@@ -130,6 +137,10 @@
 //-------------------
 .invisible {
   display: none !important;
+}
+
+.visible {
+  display: block !important;
 }
 //------------------
 

@@ -25,9 +25,18 @@
         </div>
         <div class="menu">
             <div class="cart">
-                <button type="button"><i class="fas fa-shopping-cart"> </i></button>
+                <button type="button"><i class="fas fa-shopping-cart" v-on:click="isVisibleCart"> </i></button>
                 <div class="cart-menu">
-
+                    <div class="product-item-cart" v-for="(product, idx) of cart" :key="product.id_product"
+                         v-bind:id="product.id_product">
+                        <div class="desc">
+                            <h3 class="card-title">{{product.product_name.toUpperCase()}}</h3>
+                            <p class="card-price">{{product.price}} $</p>
+                        </div>
+                        <div class="del-item">
+                            <i class="fas fa-trash" v-on:click="removeProduct(idx)"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,7 +44,8 @@
 
     <main>
         <div class="products">
-            <div class="product-item" v-for="product of products" :key="product.id_product" v-bind:id="product.id_product">
+            <div class="product-item" v-for="product of products" :key="product.id_product"
+                 v-bind:id="product.id_product">
                 <img class="card-img-top" :src="imgCatalog" alt="Some img">
                 <div class="desc">
                     <h3 class="card-title">{{product.product_name.toUpperCase()}}</h3>
@@ -43,10 +53,9 @@
                     <button class="buy-btn" v-on:click="addProduct(product)">Купить</button>
                 </div>
             </div>
+            <div class="nogoods" v-if="products.length === 0">Нет данных</div>
         </div>
-        <div>
-            <span v-if="seen">Нет данных</span>
-        </div>
+
     </main>
 </div>
 

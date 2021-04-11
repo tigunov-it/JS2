@@ -149,6 +149,13 @@ h1, h2, h3, h4, h5, h6 {
   right: 40px;
   transform: rotate(45deg);
 }
+.cart .product-item-cart {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #cccccc;
+}
 
 .products {
   display: flex;
@@ -197,6 +204,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .invisible {
   display: none !important;
+}
+
+.visible {
+  display: block !important;
 }
 
 /*# sourceMappingURL=styles.css.map */

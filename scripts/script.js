@@ -8,7 +8,7 @@ const app = new Vue({
         filtered: [],
         imgCatalog: 'https://picsum.photos/200',
         userSearch: '',
-        seen: false
+        cart: []
     },
     methods: {
         getJson(url) {
@@ -20,26 +20,31 @@ const app = new Vue({
         },
         addProduct(product) {
             console.log(product.id_product);
+            this.cart.push(product);
+
         },
+        removeProduct(idx) {
+            console.log(idx);
+            this.cart.splice(idx, 1);
+        },
+        isVisibleCart() {
+            document.querySelector('.cart-menu').classList.toggle('visible');
+        },
+
         filterGoods() {
             const regexp = new RegExp(this.userSearch, 'i');
             this.filtered = this.products.filter(product =>
-            regexp.test(product.product_name));
+                regexp.test(product.product_name));
             this.products.forEach(product => {
                 // const block = document.querySelector(`.product-item[data-id="${product.id_product}"]`);
                 const block = document.getElementById(`${product.id_product}`);
-                if(!this.filtered.includes(product)) {
+                if (!this.filtered.includes(product)) {
                     block.classList.add('invisible');
                 } else {
                     block.classList.remove('invisible');
                 }
             })
         },
-        noGoogs() {
-            if (this.products.length === 0) {
-                this.seen = true;
-            }
-        }
     },
     mounted() {
         this.getJson(`${API + this.catalogUrl}`)
