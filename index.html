@@ -8,27 +8,49 @@
     <title>eShop</title>
 </head>
 <body class="container">
-<header class="header">
-    <div class="logo">
-        <a href="#">
-            <h1>eShop</h1>
-        </a>
-    </div>
-    <div class="menu">
-        <div class="cart">
-            <button type="button"><i class="fas fa-shopping-cart"> </i></button>
-            <div class="cart-menu">
+<div id="app">
+    <header class="header">
+        <div class="logo">
+            <a href="#">
+                <h1>eShop</h1>
+            </a>
+        </div>
+        <div class="search">
+            <form action="#" class="search-form">
+                <input type="text" class="search-field" v-model="userSearch">
+                <button class="btn-search" type="submit" v-on:click.prevent="filterGoods">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <div class="menu">
+            <div class="cart">
+                <button type="button"><i class="fas fa-shopping-cart"> </i></button>
+                <div class="cart-menu">
 
+                </div>
             </div>
         </div>
-    </div>
+    </header>
 
-</header>
+    <main>
+        <div class="products">
+            <div class="product-item" v-for="product of products" :key="product.id_product" v-bind:id="product.id_product">
+                <img class="card-img-top" :src="imgCatalog" alt="Some img">
+                <div class="desc">
+                    <h3 class="card-title">{{product.product_name.toUpperCase()}}</h3>
+                    <p class="card-price">{{product.price}} $</p>
+                    <button class="buy-btn" v-on:click="addProduct(product)">Купить</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <span v-if="seen">Нет данных</span>
+        </div>
+    </main>
+</div>
 
-<main>
-    <div class="products"> </div>
-</main>
-
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="scripts/script.js"></script>
 </body>
 </html>
