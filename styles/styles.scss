@@ -1,0 +1,147 @@
+@import "zero";
+@import "variables";
+
+.container {
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  background-color: #cccccc;
+  .logo {
+    margin-left: 40px;
+  }
+  .logo a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+  }
+  .logo a h1 {
+    font-size: 30px;
+  }
+}
+
+.search {
+  height: 20px;
+  .search-field {
+    height: 20px;
+    font-size: 20px;
+  }
+  .btn-search {
+    font-size: 20px;
+    background-color: #cccccc;
+    margin-left: 10px;
+  }
+}
+
+.cart {
+  border: none;
+  background-color: #cccccc;
+  margin-right: 40px;
+  position: relative;
+  padding-bottom: 12%;
+  padding-top: 12%;
+  .fa-shopping-cart {
+    font-size: 30px;
+    background-color: #cccccc;
+  }
+  &:hover {
+    box-shadow: 12px 13px 22px 6px rgba(34, 60, 80, 0.15);
+  }
+  &:hover .cart-menu {
+    display: block;
+  }
+  .cart-menu {
+    display: none;
+    width: 300px;
+    height: 500px;
+    border: 1px solid #cccccc;
+    background-color: white;
+    position: absolute;
+    right: -35px;
+    top: 55px;
+    &:before {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-left: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+      background-color: white;
+      position: absolute;
+      top: -7px;
+      right: 40px;
+      transform: rotate(45deg);
+    }
+  }
+  .product-item-cart {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #cccccc;
+  }
+}
+
+.products {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .product-item {
+    width: 310px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    border: 1px solid #cccccc;
+    .card-img-top {
+      width: 100%;
+    }
+    .desc {
+      margin: 5px;
+      .card-title {
+        color: blue;
+        font-size: large;
+        margin-top: 5px;
+      }
+      .card-price {
+        color: cadetblue;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      .buy-btn {
+        width: 290px;
+        height: 50px;
+        color: white;
+        background-color: darkslateblue;
+        font-size: 16px;
+        text-transform: uppercase;
+        &:hover {
+          background-color: red;
+        }
+      }
+    }
+    &:hover {
+      box-shadow: 12px 13px 22px 6px rgba(34, 60, 80, 0.15);
+    }
+  }
+}
+
+//-------------------
+.invisible {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+//------------------
+
+
