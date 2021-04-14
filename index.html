@@ -15,51 +15,66 @@
                 <h1>eShop</h1>
             </a>
         </div>
-        <div class="search">
-            <form action="#" class="search-form">
-                <input type="text" class="search-field" v-model="userSearch">
-                <button class="btn-search" type="submit" v-on:click.prevent="filterGoods">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-        </div>
+
+        <search v-bind:userSearch="userSearch"> </search>
+
+<!--        <div class="search">-->
+<!--            <form action="#" class="search-form">-->
+<!--                <input type="text" class="search-field" v-model="userSearch">-->
+<!--                <button class="btn-search" type="submit" v-on:click.prevent="filterGoods">-->
+<!--                    <i class="fas fa-search"></i>-->
+<!--                </button>-->
+<!--            </form>-->
+<!--        </div>-->
+
+
         <div class="menu">
-            <div class="cart">
-                <button type="button"><i class="fas fa-shopping-cart" v-on:click="isVisibleCart"> </i></button>
-                <div class="cart-menu">
-                    <div class="product-item-cart" v-for="(product, idx) of cart" :key="product.id_product"
-                         v-bind:id="product.id_product">
-                        <div class="desc">
-                            <h3 class="card-title">{{product.product_name.toUpperCase()}}</h3>
-                            <p class="card-price">{{product.price}} $</p>
-                        </div>
-                        <div class="del-item">
-                            <i class="fas fa-trash" v-on:click="removeProduct(idx)"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            <cart v-bind:cart="cart"> </cart>
+
+<!--            <div class="cart">-->
+<!--                <button type="button"><i class="fas fa-shopping-cart" v-on:click="isVisibleCart"> </i></button>-->
+<!--                <div class="cart-menu">-->
+<!--                    <div class="product-item-cart" v-for="(product, idx) of cart" :key="product.id_product"-->
+<!--                         v-bind:id="product.id_product">-->
+<!--                        <div class="desc">-->
+<!--                            <h3 class="card-title">{{product.product_name.toUpperCase()}}</h3>-->
+<!--                            <p class="card-price">{{product.price}} $</p>-->
+<!--                        </div>-->
+<!--                        <div class="del-item">-->
+<!--                            <i class="fas fa-trash" v-on:click="removeProduct(idx)"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
         </div>
     </header>
 
     <main>
-        <div class="products">
-            <div class="product-item" v-for="product of products" :key="product.id_product"
-                 v-bind:id="product.id_product">
-                <img class="card-img-top" :src="imgCatalog" alt="Some img">
-                <div class="desc">
-                    <h3 class="card-title">{{product.product_name.toUpperCase()}}</h3>
-                    <p class="card-price">{{product.price}} $</p>
-                    <button class="buy-btn" v-on:click="addProduct(product)">Купить</button>
-                </div>
-            </div>
-            <div class="nogoods" v-if="products.length === 0">Нет данных</div>
-        </div>
+
+        <products v-bind:products="products" v-bind:img-catalog="imgCatalog"> </products>
+
+<!--        <div class="products">-->
+<!--            <div class="product-item" v-for="product of products" :key="product.id_product"-->
+<!--                 v-bind:id="product.id_product">-->
+<!--                <img class="card-img-top" :src="imgCatalog" alt="Some img">-->
+<!--                <div class="desc">-->
+<!--                    <h3 class="card-title">{{product.product_name.toUpperCase()}}</h3>-->
+<!--                    <p class="card-price">{{product.price}} $</p>-->
+<!--                    <button class="buy-btn" v-on:click="addProduct(product)">Купить</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="nogoods" v-if="products.length === 0">Нет данных</div>-->
+<!--        </div>-->
 
     </main>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="scripts/ProductComponent.js"></script>
+<script src="scripts/CartComponent.js"></script>
+<script src="scripts/SearchComponent.js"></script>
 <script src="scripts/script.js"></script>
 </body>
 </html>
